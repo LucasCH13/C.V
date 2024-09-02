@@ -174,7 +174,7 @@
 		<h2>
 			<span><</span>Contact<span>/></span>
 		</h2>
-		{% for label, messages in app.flashes(['success', 'warning']) %}
+		{% for label, messages in app.flashes(['success', 'warning','error']) %}
 			{% for message in messages %}
 				<div class="flash-{{ label }}">
 					{{ message }}

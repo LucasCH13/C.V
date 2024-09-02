@@ -208,6 +208,10 @@ a {
     align-items: center;
     margin: 5% 0 5% 0;
   }
+  form > ul > li {
+    color: red;
+    text-align: center;
+  }
   input {
     background-color: var(--couleur-bg);
     border-color: var(--couleur-vert);

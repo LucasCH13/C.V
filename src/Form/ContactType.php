@@ -9,6 +9,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Validator\Constraints\Length;
 
 
 class ContactType extends AbstractType
@@ -32,6 +34,10 @@ class ContactType extends AbstractType
                 'attr' => ['placeholder' => 'E-MAIL'],
                 'constraints' => [
                     new NotBlank(),
+                    new Regex([
+                        'pattern' => '(^[a-zA-Z0-9_.]+[@]{1}[a-z0-9]+[\.][a-z]+$)', //L'e-mail doit posséder le "@" (max 1 fois), pas de caractère comme "<,>", 1 seul "." autorisé après le "@" (ne peut pas être [..]@gmail.com.fr par exemple)
+                        'message' => 'L\'adresse mail n\'est pas valide'
+                    ])
                 ]
             ])
             ->add('message', TextType::class, [
