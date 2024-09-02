@@ -7,12 +7,12 @@
 
 {% block main %}
 	<section class="presentation">
-
 		<h1>
 			<span>
 				<</span>My name is Lucas<span>/></span>
 		</h1>
-		<p>Hello World ! Moi, c'est Lucas, développeur web et passionné d'informatique. Retrouvez ici mon C.V numérique ou visitez mon profil <a href="https://www.linkedin.com/in/lucas-charrier13/">LinkedIn</a> ainsi que mon profil <a href="https://github.com/LucasCH13">GitHub</a> !</p>
+		<p>Hello World ! Moi, c'est Lucas, développeur web et passionné d'informatique. Retrouvez ici mon C.V numérique ou visitez mon profil <a href="https://www.linkedin.com/in/lucas-charrier13/">LinkedIn</a> ainsi que mon profil <a href="https://github.com/LucasCH13">GitHub</a> !
+		<br>Vous pouvez télécharger mon C.V <a href="{{asset("/files/Lucas CHARRIER_CV.pdf")}}" target="_blank">ici</a></p>
 	</section>
 	<section class="savoir-faire">
 		<h2>
@@ -170,9 +170,17 @@
 		</article>
 	</section>
 	<section class="formulaire-contact">
+	
 		<h2>
 			<span><</span>Contact<span>/></span>
 		</h2>
+		{% for label, messages in app.flashes(['success', 'warning']) %}
+			{% for message in messages %}
+				<div class="flash-{{ label }}">
+					{{ message }}
+				</div>
+			{% endfor %}
+		{% endfor %}
 		{{form_start(form)}}
 		{{form_errors(form.prenom)}}
 		{{form_widget(form.prenom)}}

@@ -24,6 +24,14 @@ main {
 a {
   color: var(--couleur-vert);
 }
+.flash-success {
+  color: var(--couleur-vert);
+  text-align: center;
+}
+.flash-warning {
+  text-align: center;
+  color: var(--couleur-vert);
+}
 @media screen and (min-width: 390px) {
   nav {
     display: flex;
