@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Lucas
+			{% endblock %}
+		</title>
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>"> {% block stylesheets %}{% endblock %}{% block javascripts %}{% endblock %}
+		{% block importmap %}
+			{{ importmap('app') }}
+		{% endblock %}
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<header>
+			{% block header %}
+				{# <nav>
+					<svg width="36" height="25" viewbox="0 0 36 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<line y1="1.5" x2="36" y2="1.5" stroke="#A08AE5" stroke-width="3"/>
+						<line y1="1.5" x2="36" y2="1.5" stroke="#A08AE5" stroke-width="3"/>
+						<line y1="12.5" x2="36" y2="12.5" stroke="#A08AE5" stroke-width="3"/>
+						<line y1="23.5" x2="36" y2="23.5" stroke="#A08AE5" stroke-width="3"/>
+					</svg>
+				</nav> #}
+			{% endblock %}
+		</header>
+		{% block body %}
+			<main>
+				{% block main %}{% endblock %}
+			</main>
+			<footer>
+				{% block footer %}{% endblock %}
+			</footer>
+		{% endblock %}
+		{% block javascript %}{% endblock %}
+	</body>
+</html>

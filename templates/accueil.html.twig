@@ -1,0 +1,218 @@
+{% extends "base.html.twig" %}
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{asset('styles/styleAccueil.css')}}">
+	<link rel="stylesheet" href="{{asset('styles/cube.css')}}">
+
+{% endblock %}
+
+{% block main %}
+	<section class="presentation">
+
+		<h1>
+			<span>
+				<</span>My name is Lucas<span>/></span>
+		</h1>
+		<p>Hello World ! Moi, c'est Lucas, développeur web et passionné d'informatique. Retrouvez ici mon C.V numérique ou visitez mon profil <a href="https://www.linkedin.com/in/lucas-charrier13/">LinkedIn</a> ainsi que mon profil <a href="https://github.com/LucasCH13">GitHub</a> !</p>
+	</section>
+	<section class="savoir-faire">
+		<h2>
+			<span>
+				<</span>Mes savoir-faire<span>/></span>
+		</h2>
+		<h3>Compétences</h3>
+		<section>
+			<!-- <button id="btnUp"><img src="img/Fleches.png" alt=""></button> -->
+			<section class="cube">
+				<div id="face1">
+					DÉVELOPPEMENT WEB
+				</div>
+				<div id="face2">
+					DÉVELOPPEMENT WEB
+				</div>
+				<div id="face3">
+					DÉVELOPPEMENT WEB
+				</div>
+				<div id="face4">
+					DÉVELOPPEMENT WEB
+				</div>
+				<div id="face5">
+					DÉVELOPPEMENT WEB
+				</div>
+				<div id="face6">
+					DÉVELOPPEMENT WEB
+				</div>
+			</section>
+			<section class="texte-competence">
+				<p>Connaissance et utilisation d'outils de maquettage.</p>
+				<p>Maîtrise du langage de présentation HTML et du langage de style CSS.</p>
+				<p>Développement de la partie dynamique des interfaces utilisateur pour le web</p>
+				<p>Utilisation de langages de programmation orientée objet.</p>
+				<p>Utilisation d'un langage de requête SQL.
+				</p>
+				<p>Connaissance des formats de données (JSON, XML, etc.)</p>
+				<p>Maîtrise d'outils spécifiques de développement web et de gestion de projets (GitLab, JIRA, Trello, etc.).</p>
+			</section>
+			<!-- <button id="btnDown"><img src="img/Fleches.png" alt=""></button> -->
+		</section>
+		<h3>Compétences</h3>
+		<article class="grille-competences">
+
+			<div class="grille-item">HTML</div>
+			<div class="grille-item">CSS</div>
+			<div class="grille-item">JS</div>
+			<div class="grille-item">PHP</div>
+			<div class="grille-item">SYMFONY</div>
+			<div class="grille-item">SQL</div>
+			<div class="grille-item">TWIG</div>
+			<div class="grille-item">GIT</div>	
+
+		</article>
+	</section>
+	<section class="projet-pro">
+		<h2>
+			<span>
+				<</span>Projets professionels<span>/></span>
+		</h2>
+
+		<article class="container-global">
+			<div class="grid-container-pro">
+				{% for projet in projetCompetence %}
+					<div class="grid-item-polygon" data-project="{{ projet.nom }}">
+						<svg width="150" height="150" viewbox="0 0 65 74" fill="d2ff58" xmlns="http://www.w3.org/2000/svg">
+							<path d="M27.7632 2.44584C30.7664 0.649287 34.5141 0.649287 37.5173 2.44584L59.1869 15.409C62.0544 17.1244 63.8099 20.2202 63.8099 23.5616V50.1112C63.8099 53.4526 62.0544 56.5484 59.1869 58.2638L37.5173 71.2269C34.5141 73.0235 30.7664 73.0235 27.7632 71.2269L6.09357 58.2638C3.22606 56.5484 1.4706 53.4526 1.4706 50.1112V23.5616C1.4706 20.2202 3.22606 17.1244 6.09357 15.409L27.7632 2.44584Z" stroke="#D2FF58"/>
+							<text x="32" y="37" text-anchor="middle" dominant-baseline="middle" font-size="12px" fill="white">{{ projet.nom }}</text>
+						</svg>
+					</div>
+				{% endfor %}
+			</div>
+			<div class="grid-container-pro-texte">
+				{% for projet in projetCompetence %}
+			
+					{% if 'Symfony' in projet.competence %}
+						<div class="grid-item-rectangle show1" data-project="{{ projet.nom }}">Symfony</div>
+					{% endif %}
+					{% if 'Maquette Figma' in projet.competence %}
+						<div class="grid-item-rectangle show2" data-project="{{ projet.nom }}">Création et Intégration de maquette Figma</div>
+					{% endif %}
+					{% if 'Intégration de contenu' in projet.competence %}
+						<div class="grid-item-rectangle show3" data-project="{{ projet.nom }}">Mise à jour et intégration de contenu</div>
+					{% endif %}
+					{% if 'Easyadmin' in projet.competence %}
+						<div class="grid-item-rectangle show4" data-project="{{ projet.nom }}">Espace d'administration EasyAdmin</div>
+					{% endif %}
+					{% if 'Wordpress' in projet.competence %}
+						<div class="grid-item-rectangle show5" data-project="{{ projet.nom }}">Wordpress</div>
+					{% endif %}
+					{% if 'E-Commerce' in projet.competence %}
+						<div class="grid-item-rectangle show5" data-project="{{ projet.nom }}">E-Commerce</div>
+					{% endif %}
+					{% if 'Référencement web' in projet.competence %}
+						<div class="grid-item-rectangle show6" data-project="{{ projet.nom }}">Référence web</div>
+					{% endif %}
+					{% if 'Site Testing' in projet.competence %}
+						<div class="grid-item-rectangle show7" data-project="{{ projet.nom }}">Test de site</div>
+					{% endif %}
+					{% if 'Résolution de bug' in projet.competence %}
+						<div class="grid-item-rectangle show7" data-project="{{ projet.nom }}">Résolution de bugs</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+		</article>
+	</section>
+	<section class="formations-projetpro">
+		<h2>
+			<span>
+				<</span>Formations et projets perso<span>/></span>
+		</h2>
+		<article class="formation">
+			<div class="gauche">
+				<p>2020</p>
+				<svg width="65" height="74" viewbox="0 0 65 74" fill="d2ff58" xmlns="http://www.w3.org/2000/svg">
+					<path d="M27.7632 2.44584C30.7664 0.649287 34.5141 0.649287 37.5173 2.44584L59.1869 15.409C62.0544 17.1244 63.8099 20.2202 63.8099 23.5616V50.1112C63.8099 53.4526 62.0544 56.5484 59.1869 58.2638L37.5173 71.2269C34.5141 73.0235 30.7664 73.0235 27.7632 71.2269L6.09357 58.2638C3.22606 56.5484 1.4706 53.4526 1.4706 50.1112V23.5616C1.4706 20.2202 3.22606 17.1244 6.09357 15.409L27.7632 2.44584Z" stroke="#D2FF58"/>
+				</svg>
+			</div>
+			<div class="droite">
+				<h3>LICENCE PROFESSIONNELLE ADMS
+				</h3>
+				<h4>Conception, développement et test de logiciels
+					<br>
+					Agile : de l'analyse au déploiement multisupports (ADMS)</h4>
+			</div>
+
+		</article>
+		<article class="formation">
+			<div class="gauche">
+				<p>2019</p>
+				<svg width="65" height="74" viewbox="0 0 65 74" fill="d2ff58" xmlns="http://www.w3.org/2000/svg">
+					<path d="M27.7632 2.44584C30.7664 0.649287 34.5141 0.649287 37.5173 2.44584L59.1869 15.409C62.0544 17.1244 63.8099 20.2202 63.8099 23.5616V50.1112C63.8099 53.4526 62.0544 56.5484 59.1869 58.2638L37.5173 71.2269C34.5141 73.0235 30.7664 73.0235 27.7632 71.2269L6.09357 58.2638C3.22606 56.5484 1.4706 53.4526 1.4706 50.1112V23.5616C1.4706 20.2202 3.22606 17.1244 6.09357 15.409L27.7632 2.44584Z" stroke="#D2FF58"/>
+				</svg>
+			</div>
+			<div class="droite">
+				<h3>BTS SYSTEMES NUMERIQUES</h3>
+				<h4>Option : Informatique et Réseaux</h4>
+			</div>
+		</article>
+
+		<svg width="302" height="1" viewbox="0 0 302 1" style="display:block; margin:0 auto 0 auto;" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<line y1="0.5" x2="302" y2="0.5" stroke="#D2FF58"/>
+		</svg>
+		<article class="formation">
+			<div class="gauche">
+				<p>2019</p>
+				<svg width="65" height="74" viewbox="0 0 65 74" fill="d2ff58" xmlns="http://www.w3.org/2000/svg">
+					<path d="M27.7632 2.44584C30.7664 0.649287 34.5141 0.649287 37.5173 2.44584L59.1869 15.409C62.0544 17.1244 63.8099 20.2202 63.8099 23.5616V50.1112C63.8099 53.4526 62.0544 56.5484 59.1869 58.2638L37.5173 71.2269C34.5141 73.0235 30.7664 73.0235 27.7632 71.2269L6.09357 58.2638C3.22606 56.5484 1.4706 53.4526 1.4706 50.1112V23.5616C1.4706 20.2202 3.22606 17.1244 6.09357 15.409L27.7632 2.44584Z" stroke="#D2FF58"/>
+				</svg>
+			</div>
+			<div class="droite">
+				<h3>TwintopInsanityBar - Développement logiciel Lua</h3>
+				<h4>AddOn World Of Warcraft : Traduction et implémentation de nouvelles fonctionnalité</h4>
+			</div>
+		</article>
+	</section>
+	<section class="formulaire-contact">
+		<h2>
+			<span><</span>Contact<span>/></span>
+		</h2>
+		{{form_start(form)}}
+		{{form_errors(form.prenom)}}
+		{{form_widget(form.prenom)}}
+
+		{{form_errors(form.nom)}}
+		{{form_widget(form.nom)}}
+
+		{{form_errors(form.email)}}
+		{{form_widget(form.email)}}
+
+		{{form_errors(form.message)}}
+		{{form_widget(form.message)}}
+
+		{{form_widget(form.save, {'label': 'Envoyer'})}}
+		{{form_end(form)}}
+	</section>
+	<section class="autres">
+		<h2>
+			<span>
+		<</span>Else<span>/>
+			</span>
+		</h2>
+		<h3>if(&#128187;) {
+			<br>
+
+			<p>&#127918; : Jeux-vidéo</p>
+			<br>
+			<p>&#128187; : Programmation</p>
+			<br>}
+		</h3>
+		<h3>else {
+			<br>
+			<p>&#127939; : Course à pied</p>
+			<p>&#127907; : Pêche en rivière</p>
+			<p>🪂 : Parapente<p>
+			<br>}
+		</h3>
+	</section>
+{% endblock %}
+{% block javascript %} <script src="{{asset('js/cube.js')}}"></script>
+	 <script src="{{asset('js/animationProjet.js')}}"></script>
+
+{% endblock %}
