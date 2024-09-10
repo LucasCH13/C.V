@@ -1,2 +1,3 @@
-# TODO :
- - Ajouter un captcha pour le formulaire
+# C.V 
+### Todo : 
+    - Ajouter une captcha pour le formulaire
