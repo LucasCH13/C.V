@@ -28,7 +28,6 @@ class PublicController extends AbstractController
             $this->addFlash('success', 'Formulaire correctement envoyé !');
             return $this->redirectToRoute('app_accueil');
         }
-        // dump($pjr->findAll());
         return $this->render('accueil.html.twig', [
             'form' => $form,
             'projetName' => $pjr->findbyName(),
